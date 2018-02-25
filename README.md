@@ -1,1 +1,2 @@
 # Morti
+Simple Budget Assistant
