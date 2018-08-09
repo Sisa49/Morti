@@ -6,12 +6,16 @@ CREATE TABLE receipts (
     data TIMESTAMP NOT NULL DEFAULT NOW(),
     amount DECIMAL (10,2) UNSIGNED NOT NULL,
     bought VARCHAR(6000)
+    FOREIGN KEY (id_shop) REFERENCES shops(id),
+    FOREIGN KEY (id_interval) REFERENCES intervals(id),
+    FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
 CREATE TABLE shops (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
-    id_category INT UNSIGNED NOT NULL
+    id_category INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id_category) REFERENCES category(id)
 );
 
 CREATE TABLE category (
@@ -21,8 +25,8 @@ CREATE TABLE category (
 
 CREATE TABLE intervals(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    interval_start TIMESTAMP NOT NULL,
-    interval_stop TIMESTAMP NOT NULL,
+    interval_start DATE NOT NULL,
+    interval_stop DATE NOT NULL,
     amount DECIMAL (10,2) UNSIGNED NOT NULL
 );
 
