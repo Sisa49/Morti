@@ -1,10 +1,10 @@
 <?php
     class DataBaseConnect{
-        protected $_connection;
+        protected $_connection = null;
         private $_host = "localhost";
         private $_username = "root";
         private $_password = "";
-        private $_database = "riddler";
+        private $_database = "morti";
         private $_sqll = "mysql";
         public function __construct() {
             try{
